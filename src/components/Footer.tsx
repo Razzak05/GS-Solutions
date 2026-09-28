@@ -21,40 +21,43 @@ export default function Footer() {
                   GS Solutions
                 </span>
                 <span className="text-[0.62rem] font-bold uppercase tracking-[1.4px] text-indigo-400">
-                  Enterprise BPO
+                  Comprehensive Solutions
                 </span>
               </div>
             </a>
             <p className="text-slate-400 text-sm leading-relaxed max-w-sm font-normal">
-              Precision B2B lead generation, verified warm live transfers, and dedicated contact center pods engineered for high-performance sales floors.
+              Comprehensive lead generation, telemarketing services, customer support, and dedicated contact center operations tailored to your business needs.
             </p>
           </div>
 
-          {/* Verticals Col */}
+          {/* Services Col */}
           <div>
             <span className="block font-heading text-sm font-bold uppercase tracking-wider text-white mb-5">
-              Campaign Verticals
+              Our Services
             </span>
             <ul className="space-y-3">
-              <li><a href="#verticals" className="text-slate-400 hover:text-indigo-300 text-sm transition-colors">ACA Health Insurance</a></li>
-              <li><a href="#verticals" className="text-slate-400 hover:text-indigo-300 text-sm transition-colors">Final Expense Life</a></li>
-              <li><a href="#verticals" className="text-slate-400 hover:text-indigo-300 text-sm transition-colors">Medicare Advantage</a></li>
-              <li><a href="#verticals" className="text-slate-400 hover:text-indigo-300 text-sm transition-colors">SSDI Disability Claims</a></li>
-              <li><a href="#verticals" className="text-slate-400 hover:text-indigo-300 text-sm transition-colors">Home Improvement &amp; Solar</a></li>
+              <li><a href="#services" className="text-slate-400 hover:text-indigo-300 text-sm transition-colors">ACA (Healthcare)</a></li>
+              <li><a href="#services" className="text-slate-400 hover:text-indigo-300 text-sm transition-colors">Final Expense Insurance</a></li>
+              <li><a href="#services" className="text-slate-400 hover:text-indigo-300 text-sm transition-colors">Medicare Support</a></li>
+              <li><a href="#services" className="text-slate-400 hover:text-indigo-300 text-sm transition-colors">SSDI Advocacy</a></li>
+              <li><a href="#services" className="text-slate-400 hover:text-indigo-300 text-sm transition-colors">Home Improvement &amp; Solar</a></li>
+              <li><a href="#services" className="text-slate-400 hover:text-indigo-300 text-sm transition-colors">24/7 Customer Support</a></li>
+              <li><a href="#services" className="text-slate-400 hover:text-indigo-300 text-sm transition-colors">Lead Generation &amp; Telemarketing</a></li>
             </ul>
           </div>
 
-          {/* Standards Col */}
+          {/* Company & Why Choose Us Col */}
           <div>
             <span className="block font-heading text-sm font-bold uppercase tracking-wider text-white mb-5">
-              Standards &amp; Process
+              Why Choose Us
             </span>
             <ul className="space-y-3">
-              <li><a href="#standards" className="text-slate-400 hover:text-indigo-300 text-sm transition-colors">TCPA &amp; DNC Compliance</a></li>
-              <li><a href="#standards" className="text-slate-400 hover:text-indigo-300 text-sm transition-colors">Quality Auditing Protocols</a></li>
-              <li><a href="#standards" className="text-slate-400 hover:text-indigo-300 text-sm transition-colors">Buffer &amp; Credit Terms</a></li>
-              <li><a href="#workflow" className="text-slate-400 hover:text-indigo-300 text-sm transition-colors">Onboarding Roadmap</a></li>
+              <li><a href="#why-choose-us" className="text-slate-400 hover:text-indigo-300 text-sm transition-colors">Experienced Team</a></li>
+              <li><a href="#why-choose-us" className="text-slate-400 hover:text-indigo-300 text-sm transition-colors">Quality Assurance</a></li>
+              <li><a href="#why-choose-us" className="text-slate-400 hover:text-indigo-300 text-sm transition-colors">100% TCPA Compliance</a></li>
+              <li><a href="#about" className="text-slate-400 hover:text-indigo-300 text-sm transition-colors">Execution Process</a></li>
               <li><a href="#estimator" className="text-slate-400 hover:text-indigo-300 text-sm transition-colors">Capacity Calculator</a></li>
+              <li><a href="#faq" className="text-slate-400 hover:text-indigo-300 text-sm transition-colors">Frequently Asked Questions</a></li>
             </ul>
           </div>
 
@@ -91,8 +94,8 @@ export default function Footer() {
             &copy; 2026 GS Solutions. All rights reserved.
           </p>
           <div className="flex flex-wrap gap-5 sm:gap-7">
-            <a href="#standards" className="text-slate-500 hover:text-slate-300 text-xs sm:text-sm transition-colors">Compliance &amp; Quality</a>
-            <a href="#standards" className="text-slate-500 hover:text-slate-300 text-xs sm:text-sm transition-colors">Buffer Policy Terms</a>
+            <a href="#why-choose-us" className="text-slate-500 hover:text-slate-300 text-xs sm:text-sm transition-colors">Compliance &amp; Quality</a>
+            <a href="#why-choose-us" className="text-slate-500 hover:text-slate-300 text-xs sm:text-sm transition-colors">Service Standards</a>
             <a href="#contact" className="text-slate-500 hover:text-slate-300 text-xs sm:text-sm transition-colors">Pilot Terms</a>
           </div>
         </div>

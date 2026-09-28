@@ -1,32 +1,41 @@
 "use client";
 
 import React, { useState, useMemo } from "react";
-import { ArrowRight, Shield, Activity, Users, HelpCircle } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 
-type Vertical = "aca" | "final-expense" | "medicare" | "ssdi" | "home-improvement" | "bpo";
+type ServiceKey = 
+  | "aca" 
+  | "final-expense" 
+  | "medicare" 
+  | "ssdi" 
+  | "home-improvement" 
+  | "customer-support" 
+  | "lead-generation" 
+  | "telemarketing";
 
-interface VerticalConfig {
+interface ServiceConfig {
   name: string;
-  buffer: number;
-  label: string;
+  buffer: string;
 }
 
-const VERTICAL_CONFIGS: Record<Vertical, VerticalConfig> = {
-  aca: { name: "ACA Health Insurance", buffer: 120, label: "120s Buffer Protection" },
-  "final-expense": { name: "Final Expense Life Insurance", buffer: 90, label: "90s Buffer Protection" },
-  medicare: { name: "Medicare Advantage & Supp", buffer: 120, label: "120s Buffer Protection" },
-  ssdi: { name: "SSDI Disability Claims", buffer: 120, label: "120s Buffer Protection" },
-  "home-improvement": { name: "Home Improvement & Solar", buffer: 90, label: "90s Buffer Protection" },
-  bpo: { name: "Omnichannel BPO Support", buffer: 120, label: "Custom Pod SLA" }
+const SERVICE_CONFIGS: Record<ServiceKey, ServiceConfig> = {
+  aca: { name: "ACA (Affordable Care Act)", buffer: "120s Buffer" },
+  "final-expense": { name: "Final Expense Life Insurance", buffer: "90s Buffer" },
+  medicare: { name: "Medicare Advantage & Supp", buffer: "120s Buffer" },
+  ssdi: { name: "SSDI Disability Advocacy", buffer: "120s Buffer" },
+  "home-improvement": { name: "Home Improvement & Solar", buffer: "90s Buffer" },
+  "customer-support": { name: "24/7 Customer Support", buffer: "Custom SLA" },
+  "lead-generation": { name: "High-Quality Lead Generation", buffer: "Verified Consent" },
+  telemarketing: { name: "Professional Telemarketing", buffer: "Dedicated Pods" }
 };
 
 export default function EstimatorSection() {
-  const [vertical, setVertical] = useState<Vertical>("aca");
-  const [dailyTransfers, setDailyTransfers] = useState(100);
-  const [licensedReps, setLicensedReps] = useState(10);
+  const [service, setService] = useState<ServiceKey>("aca");
+  const [dailyVolume, setDailyVolume] = useState(100);
+  const [staffCount, setStaffCount] = useState(10);
 
-  const monthlyVolume = useMemo(() => dailyTransfers * 22, [dailyTransfers]);
-  const dailyPerRep = useMemo(() => Math.max(1, Math.round(dailyTransfers / licensedReps)), [dailyTransfers, licensedReps]);
+  const monthlyVolume = useMemo(() => dailyVolume * 22, [dailyVolume]);
+  const pacingPerAgent = useMemo(() => Math.max(1, Math.round(dailyVolume / staffCount)), [dailyVolume, staffCount]);
 
   const getSliderTrack = (val: number, min: number, max: number) => {
     const percentage = ((val - min) / (max - min)) * 100;
@@ -42,13 +51,13 @@ export default function EstimatorSection() {
           {/* Section Header */}
           <div className="text-center max-w-[720px] mx-auto mb-14">
             <span className="inline-flex items-center justify-center px-4 py-1.5 mb-5 text-[0.76rem] font-bold uppercase tracking-[1.8px] text-indigo-400 bg-indigo-500/[0.08] border border-indigo-500/25 rounded-full">
-              Floor Capacity Tool
+              Volume &amp; Capacity Tool
             </span>
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-heading font-extrabold text-white mb-5 tracking-tight">
-              Calculate Your Monthly <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-slate-100 to-indigo-300">Lead Flow &amp; Staffing Pacing.</span>
+              Calculate Your Monthly <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-slate-100 to-indigo-300">Lead Flow &amp; Staffing Needs.</span>
             </h2>
             <p className="text-base sm:text-lg text-slate-400 leading-relaxed font-normal">
-              Model daily transfer volume and rep pacing to determine optimal staffing requirements for your licensed sales floor.
+              Model your anticipated daily volume and team size to project monthly output and optimal rep pacing.
             </p>
           </div>
 
@@ -57,15 +66,15 @@ export default function EstimatorSection() {
             {/* Left Controls */}
             <div className="space-y-8">
               
-              {/* Vertical Select */}
+              {/* Service Select */}
               <div className="space-y-3">
                 <label className="block text-sm font-semibold text-slate-200">
-                  Campaign Vertical
+                  Select Service
                 </label>
                 <div className="relative">
                   <select 
-                    value={vertical} 
-                    onChange={(e) => setVertical(e.target.value as Vertical)}
+                    value={service} 
+                    onChange={(e) => setService(e.target.value as ServiceKey)}
                     className="w-full bg-[#10172A] border border-white/[0.1] rounded-2xl p-4 text-sm font-medium text-white appearance-none focus:outline-none focus:border-indigo-500 focus:ring-2 focus:ring-indigo-500/30 transition-all cursor-pointer"
                     style={{
                       backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%2394A3B8' stroke-width='2'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E")`,
@@ -73,23 +82,23 @@ export default function EstimatorSection() {
                       backgroundPosition: 'right 18px center',
                     }}
                   >
-                    {Object.entries(VERTICAL_CONFIGS).map(([key, config]) => (
+                    {Object.entries(SERVICE_CONFIGS).map(([key, config]) => (
                       <option key={key} value={key} className="bg-[#0A0E1A] text-white py-2">
-                        {config.name} ({config.buffer}s Buffer)
+                        {config.name} ({config.buffer})
                       </option>
                     ))}
                   </select>
                 </div>
               </div>
 
-              {/* Slider 1: Daily Transfers */}
+              {/* Slider 1: Daily Volume */}
               <div className="space-y-3">
                 <div className="flex justify-between items-center">
                   <label className="text-sm font-semibold text-slate-200">
-                    Desired Daily Transfers
+                    Desired Daily Volume
                   </label>
                   <span className="font-heading text-base font-bold text-indigo-400 bg-indigo-500/10 px-3 py-1 rounded-lg border border-indigo-500/20">
-                    {dailyTransfers.toLocaleString()} / day
+                    {dailyVolume.toLocaleString()} / day
                   </span>
                 </div>
                 <input 
@@ -97,11 +106,11 @@ export default function EstimatorSection() {
                   min="20" 
                   max="500" 
                   step="10" 
-                  value={dailyTransfers} 
-                  onChange={(e) => setDailyTransfers(Number(e.target.value))}
+                  value={dailyVolume} 
+                  onChange={(e) => setDailyVolume(Number(e.target.value))}
                   className="w-full h-2 rounded-full appearance-none cursor-pointer"
-                  style={{ background: getSliderTrack(dailyTransfers, 20, 500) }}
-                  aria-label="Desired Daily Transfers"
+                  style={{ background: getSliderTrack(dailyVolume, 20, 500) }}
+                  aria-label="Desired Daily Volume"
                 />
                 <div className="flex justify-between text-[0.72rem] font-semibold text-slate-500 px-1">
                   <span>20 / day</span>
@@ -112,14 +121,14 @@ export default function EstimatorSection() {
                 </div>
               </div>
 
-              {/* Slider 2: Licensed Reps */}
+              {/* Slider 2: Agents */}
               <div className="space-y-3">
                 <div className="flex justify-between items-center">
                   <label className="text-sm font-semibold text-slate-200">
-                    Licensed Reps on Floor
+                    Floor Agents / Licensed Reps
                   </label>
                   <span className="font-heading text-base font-bold text-indigo-400 bg-indigo-500/10 px-3 py-1 rounded-lg border border-indigo-500/20">
-                    {licensedReps} Rep{licensedReps > 1 ? 's' : ''}
+                    {staffCount} Agent{staffCount > 1 ? 's' : ''}
                   </span>
                 </div>
                 <input 
@@ -127,18 +136,18 @@ export default function EstimatorSection() {
                   min="2" 
                   max="50" 
                   step="1" 
-                  value={licensedReps} 
-                  onChange={(e) => setLicensedReps(Number(e.target.value))}
+                  value={staffCount} 
+                  onChange={(e) => setStaffCount(Number(e.target.value))}
                   className="w-full h-2 rounded-full appearance-none cursor-pointer"
-                  style={{ background: getSliderTrack(licensedReps, 2, 50) }}
-                  aria-label="Licensed Reps on Floor"
+                  style={{ background: getSliderTrack(staffCount, 2, 50) }}
+                  aria-label="Floor Agents"
                 />
                 <div className="flex justify-between text-[0.72rem] font-semibold text-slate-500 px-1">
-                  <span>2 Reps</span>
+                  <span>2 Agents</span>
                   <span>12</span>
                   <span>25</span>
                   <span>38</span>
-                  <span>50 Reps</span>
+                  <span>50 Agents</span>
                 </div>
               </div>
 
@@ -153,7 +162,7 @@ export default function EstimatorSection() {
                 {/* Metric 1: Monthly Total */}
                 <div className="pb-5 border-b border-white/[0.08]">
                   <span className="block text-[0.76rem] font-bold uppercase tracking-wider text-slate-400 mb-1.5">
-                    Monthly Qualified Volume
+                    Monthly Projected Volume
                   </span>
                   <div className="font-heading text-4xl sm:text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-white via-slate-100 to-indigo-300 tracking-tight">
                     {monthlyVolume.toLocaleString()}
@@ -166,24 +175,24 @@ export default function EstimatorSection() {
                 {/* Metric 2: Pacing */}
                 <div className="pb-5 border-b border-white/[0.08]">
                   <span className="block text-[0.76rem] font-bold uppercase tracking-wider text-slate-400 mb-1">
-                    Daily Pacing per Rep
+                    Daily Pacing per Agent
                   </span>
                   <div className="font-heading text-2xl font-bold text-white">
-                    ~{dailyPerRep} Live Transfers / Day
+                    ~{pacingPerAgent} Leads / Calls Daily
                   </div>
                   <span className="block text-xs text-slate-500 mt-1 font-medium">
-                    Estimated volume per licensed agent daily
+                    Estimated volume per seated agent each day
                   </span>
                 </div>
 
-                {/* Metric 3: Buffer window */}
+                {/* Metric 3: Service Assurance */}
                 <div className="flex items-center justify-between pt-1">
                   <span className="text-[0.76rem] font-bold uppercase tracking-wider text-slate-400">
-                    Buffer Guarantee
+                    Service Assurance
                   </span>
                   <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-sky-500/10 border border-sky-500/25 text-xs font-bold text-sky-300">
                     <span className="w-1.5 h-1.5 rounded-full bg-sky-400 animate-pulse"></span>
-                    {VERTICAL_CONFIGS[vertical].buffer} Seconds Guaranteed
+                    {SERVICE_CONFIGS[service].buffer}
                   </span>
                 </div>
 

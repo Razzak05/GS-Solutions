@@ -4,49 +4,49 @@ import { Search, Sliders, PlayCircle, TrendingUp } from 'lucide-react';
 const steps = [
   {
     num: '01',
-    label: 'Discovery & Scripting',
-    title: 'Qualification Calibration',
-    desc: 'We review your licensed states, target demographics, buffer thresholds, and custom rebuttal workflows to align with your sales scripts.',
+    label: 'Discovery & Consultation',
+    title: 'Campaign Calibration',
+    desc: 'We analyze your target demographics, licensing, qualification questions, and custom scripts to tailor the ideal lead acquisition strategy.',
     Icon: Search
   },
   {
     num: '02',
-    label: 'Telephony Integration',
-    title: 'Routing & CRM Setup',
-    desc: 'We configure dedicated DID phone numbers, test 3-way conference audio quality, and connect automated webhooks to your CRM or dialer.',
+    label: 'System & CRM Setup',
+    title: 'Routing Integration',
+    desc: 'We set up dedicated DID phone numbers, 3-way warm transfer lines, and real-time CRM webhooks (GoHighLevel, VICIdial, Salesforce, HubSpot).',
     Icon: Sliders
   },
   {
     num: '03',
     label: 'Introductory Pilot',
-    title: 'Pacing Calibration',
-    desc: 'We run an introductory batch of transfers to verify connect speed, audio clarity, and ensure transfer pacing matches your floor capacity.',
+    title: 'Pacing & QA Testing',
+    desc: 'We launch a controlled pilot batch to test connect rates, transfer timing, and script adherence, ensuring seamless alignment with your sales floor.',
     Icon: PlayCircle
   },
   {
     num: '04',
     label: 'Full Deployment',
-    title: 'Ongoing QA & Scaling',
-    desc: 'We systematically scale daily transfer volume with dedicated agent pods, regular supervisor QA reviews, and continuous script optimization.',
+    title: 'Ongoing QA & Scale',
+    desc: 'We scale your daily lead flow with dedicated agent pods, continuous supervisor QA audits, and weekly performance reviews.',
     Icon: TrendingUp
   }
 ];
 
 export default function WorkflowSection() {
   return (
-    <section id="workflow" className="py-[110px] relative w-full overflow-hidden">
+    <section id="about" className="py-[110px] relative w-full overflow-hidden">
       <div className="max-w-[1240px] mx-auto px-4 sm:px-6 relative z-10">
         
         {/* Intro */}
         <div className="text-center max-w-[760px] mx-auto mb-16">
           <span className="inline-flex items-center justify-center px-4 py-1.5 mb-5 text-[0.76rem] font-bold uppercase tracking-[1.8px] text-indigo-400 bg-indigo-500/[0.08] border border-indigo-500/25 rounded-full">
-            Structured Execution
+            How We Work
           </span>
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-heading font-extrabold text-white mb-5 tracking-tight">
-            A Structured Process from <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-slate-100 to-indigo-300">Pilot to Predictable Scale.</span>
+            A Proven Process from <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-slate-100 to-indigo-300">Pilot to Predictable Scale.</span>
           </h2>
           <p className="text-base sm:text-lg text-slate-400 leading-relaxed font-normal">
-            A battle-tested 4-stage onboarding roadmap designed for seamless technical integration and alignment with your sales floor capacity.
+            A structured 4-stage onboarding roadmap designed to integrate seamlessly with your technology stack and accelerate revenue growth.
           </p>
         </div>
 
@@ -57,7 +57,6 @@ export default function WorkflowSection() {
               key={idx}
               className="bg-[#0B0F19]/90 border border-white/[0.08] rounded-[22px] p-7 sm:p-8 backdrop-blur-xl transition-all duration-300 hover:border-indigo-500/40 hover:bg-[#11172A] hover:-translate-y-1.5 hover:shadow-[0_20px_45px_-12px_rgba(0,0,0,0.7)] relative overflow-hidden group flex flex-col justify-between"
             >
-              {/* Laser Top Line */}
               <div className="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-white/15 group-hover:via-indigo-400/50 to-transparent"></div>
               
               <div>

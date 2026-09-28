@@ -15,7 +15,6 @@ export default function ContactSection() {
     const formData = new FormData(e.currentTarget);
     const name = formData.get("fullName") as string;
     
-    // Simulate API submission
     setTimeout(() => {
       setIsSubmitting(false);
       setSubmitStatus("success");
@@ -42,7 +41,7 @@ export default function ContactSection() {
             </h2>
             
             <p className="text-base sm:text-lg text-slate-400 mb-8 max-w-md leading-relaxed font-normal">
-              Connect with our management desk to review target states, qualification criteria, and design a customized pilot campaign.
+              Connect with our team to discuss lead generation services, custom telemarketing pods, or omnichannel customer support solutions.
             </p>
 
             {/* Operational Status Pill */}
@@ -127,10 +126,10 @@ export default function ContactSection() {
             
             <div className="mb-7">
               <h3 className="font-heading text-2xl font-bold text-white mb-2">
-                Campaign Inquiry Form
+                Service Inquiry Form
               </h3>
               <p className="text-slate-400 text-sm">
-                Submit your campaign parameters to receive our qualification criteria and custom pilot proposal.
+                Submit your campaign parameters to receive our service specifications and a tailored proposal.
               </p>
             </div>
 
@@ -172,7 +171,7 @@ export default function ContactSection() {
                     name="email" 
                     type="email" 
                     className="w-full bg-[#10172A] border border-white/[0.08] rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-indigo-500 focus:ring-2 focus:ring-indigo-500/30 transition-all placeholder:text-slate-600" 
-                    placeholder="name@agency.com" 
+                    placeholder="name@company.com" 
                   />
                 </div>
               </div>
@@ -192,7 +191,7 @@ export default function ContactSection() {
                 </div>
                 <div className="space-y-1.5">
                   <label className="block text-xs font-semibold text-slate-300">
-                    Primary Vertical *
+                    Primary Service *
                   </label>
                   <div className="relative">
                     <select 
@@ -206,13 +205,15 @@ export default function ContactSection() {
                         backgroundPosition: 'right 16px center',
                       }}
                     >
-                      <option value="" disabled className="bg-[#0A0E1A] text-slate-500">Select Campaign Vertical</option>
-                      <option value="ACA" className="bg-[#0A0E1A]">ACA Health Insurance</option>
+                      <option value="" disabled className="bg-[#0A0E1A] text-slate-500">Select a Service</option>
+                      <option value="ACA" className="bg-[#0A0E1A]">ACA (Affordable Care Act)</option>
                       <option value="Final Expense" className="bg-[#0A0E1A]">Final Expense Life Insurance</option>
-                      <option value="Medicare" className="bg-[#0A0E1A]">Medicare Advantage / Supplement</option>
-                      <option value="SSDI" className="bg-[#0A0E1A]">SSDI Disability Claims</option>
+                      <option value="Medicare" className="bg-[#0A0E1A]">Medicare Advantage &amp; Supp</option>
+                      <option value="SSDI" className="bg-[#0A0E1A]">SSDI Disability Advocacy</option>
                       <option value="Home Improvement" className="bg-[#0A0E1A]">Home Improvement &amp; Solar</option>
-                      <option value="Customer Support" className="bg-[#0A0E1A]">Omnichannel BPO Support</option>
+                      <option value="Customer Support" className="bg-[#0A0E1A]">24/7 Customer Support</option>
+                      <option value="Lead Generation" className="bg-[#0A0E1A]">High-Quality Lead Generation</option>
+                      <option value="Telemarketing" className="bg-[#0A0E1A]">Professional Telemarketing</option>
                     </select>
                   </div>
                 </div>
@@ -234,10 +235,10 @@ export default function ContactSection() {
                         backgroundPosition: 'right 16px center',
                       }}
                     >
-                      <option value="20-50" className="bg-[#0A0E1A]">20 – 50 transfers / day</option>
-                      <option value="50-100" className="bg-[#0A0E1A]">50 – 100 transfers / day</option>
-                      <option value="100-250" className="bg-[#0A0E1A]">100 – 250 transfers / day</option>
-                      <option value="250+" className="bg-[#0A0E1A]">250+ transfers / day</option>
+                      <option value="20-50" className="bg-[#0A0E1A]">20 – 50 leads / day</option>
+                      <option value="50-100" className="bg-[#0A0E1A]">50 – 100 leads / day</option>
+                      <option value="100-250" className="bg-[#0A0E1A]">100 – 250 leads / day</option>
+                      <option value="250+" className="bg-[#0A0E1A]">250+ leads / day</option>
                     </select>
                   </div>
                 </div>
@@ -257,13 +258,13 @@ export default function ContactSection() {
 
               <div className="space-y-1.5">
                 <label className="block text-xs font-semibold text-slate-300">
-                  Target States &amp; Campaign Notes
+                  Target Demographics &amp; Campaign Notes
                 </label>
                 <textarea 
                   name="notes" 
                   rows={3} 
                   className="w-full bg-[#10172A] border border-white/[0.08] rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-indigo-500 focus:ring-2 focus:ring-indigo-500/30 transition-all placeholder:text-slate-600 resize-y" 
-                  placeholder="Target states, licensing details, or specific qualification requirements..."
+                  placeholder="Target states, campaign goals, specific qualification needs..."
                 />
               </div>
 
@@ -277,7 +278,7 @@ export default function ContactSection() {
                   <div className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin"></div>
                 ) : (
                   <>
-                    <span>Submit Campaign Inquiry</span>
+                    <span>Submit Service Inquiry</span>
                     <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                   </>
                 )}

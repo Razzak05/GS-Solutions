@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
-import { Phone, ArrowRight, Menu, X, Shield } from 'lucide-react';
+import { Phone, ArrowRight, Menu, X } from 'lucide-react';
 
 export default function Header() {
   const [scrolled, setScrolled] = useState(false);
@@ -36,27 +36,30 @@ export default function Header() {
               GS Solutions
             </span>
             <span className="text-[0.66rem] font-bold uppercase tracking-[1.6px] text-indigo-400">
-              Enterprise BPO
+              Enterprise Lead Generation
             </span>
           </div>
         </a>
 
-        {/* Desktop Navigation Island */}
+        {/* Desktop Navigation */}
         <nav className="hidden lg:flex items-center bg-white/[0.03] border border-white/[0.08] rounded-full py-1 px-1.5 backdrop-blur-md shadow-[inset_0_1px_1px_rgba(255,255,255,0.06)]">
-          <a href="#verticals" className="px-4 py-1.5 text-[0.84rem] font-medium text-slate-300 rounded-full hover:text-white hover:bg-white/[0.08] transition-all">
-            Verticals
+          <a href="#home" className="px-4 py-1.5 text-[0.84rem] font-medium text-slate-300 rounded-full hover:text-white hover:bg-white/[0.08] transition-all">
+            Home
           </a>
-          <a href="#standards" className="px-4 py-1.5 text-[0.84rem] font-medium text-slate-300 rounded-full hover:text-white hover:bg-white/[0.08] transition-all">
-            Compliance &amp; QA
+          <a href="#about" className="px-4 py-1.5 text-[0.84rem] font-medium text-slate-300 rounded-full hover:text-white hover:bg-white/[0.08] transition-all">
+            About
           </a>
-          <a href="#workflow" className="px-4 py-1.5 text-[0.84rem] font-medium text-slate-300 rounded-full hover:text-white hover:bg-white/[0.08] transition-all">
-            Process
+          <a href="#services" className="px-4 py-1.5 text-[0.84rem] font-medium text-slate-300 rounded-full hover:text-white hover:bg-white/[0.08] transition-all">
+            Services
+          </a>
+          <a href="#why-choose-us" className="px-4 py-1.5 text-[0.84rem] font-medium text-slate-300 rounded-full hover:text-white hover:bg-white/[0.08] transition-all">
+            Why Choose Us
           </a>
           <a href="#estimator" className="px-4 py-1.5 text-[0.84rem] font-medium text-slate-300 rounded-full hover:text-white hover:bg-white/[0.08] transition-all">
-            Capacity Tool
+            Calculator
           </a>
-          <a href="#faq" className="px-4 py-1.5 text-[0.84rem] font-medium text-slate-300 rounded-full hover:text-white hover:bg-white/[0.08] transition-all">
-            FAQ
+          <a href="#contact" className="px-4 py-1.5 text-[0.84rem] font-medium text-slate-300 rounded-full hover:text-white hover:bg-white/[0.08] transition-all">
+            Contact
           </a>
         </nav>
 
@@ -77,7 +80,7 @@ export default function Header() {
             className="group relative overflow-hidden flex items-center gap-2 px-5 py-2 bg-gradient-to-r from-indigo-500 via-indigo-600 to-sky-500 text-white rounded-full text-[0.84rem] font-semibold shadow-[0_4px_20px_rgba(99,102,241,0.35)] hover:shadow-[0_6px_28px_rgba(99,102,241,0.55)] hover:-translate-y-0.5 transition-all border border-white/20"
           >
             <span className="absolute inset-x-0 top-0 h-[1px] bg-white/40"></span>
-            <span>Start a Pilot</span>
+            <span>Get Started</span>
             <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
           </a>
         </div>
@@ -97,20 +100,23 @@ export default function Header() {
         mobileMenuOpen ? 'translate-x-0' : 'translate-x-full'
       }`}>
         <nav className="flex flex-col gap-1.5">
-          <a href="#verticals" className="px-4 py-3 text-[0.95rem] font-medium text-slate-300 rounded-xl hover:text-white hover:bg-white/[0.06] transition-all" onClick={() => setMobileMenuOpen(false)}>
-            Campaign Verticals
+          <a href="#home" className="px-4 py-3 text-[0.95rem] font-medium text-slate-300 rounded-xl hover:text-white hover:bg-white/[0.06] transition-all" onClick={() => setMobileMenuOpen(false)}>
+            Home
           </a>
-          <a href="#standards" className="px-4 py-3 text-[0.95rem] font-medium text-slate-300 rounded-xl hover:text-white hover:bg-white/[0.06] transition-all" onClick={() => setMobileMenuOpen(false)}>
-            Compliance &amp; Quality QA
+          <a href="#about" className="px-4 py-3 text-[0.95rem] font-medium text-slate-300 rounded-xl hover:text-white hover:bg-white/[0.06] transition-all" onClick={() => setMobileMenuOpen(false)}>
+            About
           </a>
-          <a href="#workflow" className="px-4 py-3 text-[0.95rem] font-medium text-slate-300 rounded-xl hover:text-white hover:bg-white/[0.06] transition-all" onClick={() => setMobileMenuOpen(false)}>
-            Execution Process
+          <a href="#services" className="px-4 py-3 text-[0.95rem] font-medium text-slate-300 rounded-xl hover:text-white hover:bg-white/[0.06] transition-all" onClick={() => setMobileMenuOpen(false)}>
+            Services
+          </a>
+          <a href="#why-choose-us" className="px-4 py-3 text-[0.95rem] font-medium text-slate-300 rounded-xl hover:text-white hover:bg-white/[0.06] transition-all" onClick={() => setMobileMenuOpen(false)}>
+            Why Choose Us
           </a>
           <a href="#estimator" className="px-4 py-3 text-[0.95rem] font-medium text-slate-300 rounded-xl hover:text-white hover:bg-white/[0.06] transition-all" onClick={() => setMobileMenuOpen(false)}>
             Capacity Calculator
           </a>
-          <a href="#faq" className="px-4 py-3 text-[0.95rem] font-medium text-slate-300 rounded-xl hover:text-white hover:bg-white/[0.06] transition-all" onClick={() => setMobileMenuOpen(false)}>
-            Frequently Asked Questions
+          <a href="#contact" className="px-4 py-3 text-[0.95rem] font-medium text-slate-300 rounded-xl hover:text-white hover:bg-white/[0.06] transition-all" onClick={() => setMobileMenuOpen(false)}>
+            Contact
           </a>
         </nav>
 
@@ -127,7 +133,7 @@ export default function Header() {
             className="flex items-center justify-center gap-2 px-6 py-3 bg-gradient-to-r from-indigo-500 via-indigo-600 to-sky-500 text-white rounded-xl font-bold text-sm shadow-[0_4px_20px_rgba(99,102,241,0.35)] w-full"
             onClick={() => setMobileMenuOpen(false)}
           >
-            <span>Request Pilot Proposal</span>
+            <span>Request Proposal</span>
             <ArrowRight size={16} />
           </a>
         </div>

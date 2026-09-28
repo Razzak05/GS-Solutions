@@ -5,24 +5,28 @@ import { ChevronDown } from "lucide-react";
 
 const FAQ_DATA = [
   {
+    question: "What Lead Generation and Contact Center services do you provide?",
+    answer: "We offer comprehensive lead generation and contact center solutions across ACA (Affordable Care Act), Final Expense Life Insurance, Medicare Advantage & Supplement, SSDI (Disability), Home Improvement & Solar, 24/7 Multilingual Customer Support, General Lead Generation, and Outbound Telemarketing.",
+  },
+  {
     question: "How does the warm live transfer process work?",
-    answer: "Our dedicated agent pre-screens the consumer according to your specific vertical criteria. Once verified, the agent places the consumer on a brief hold, initiates a 3-way conference to your direct broker DID line, introduces the prospect, and hands off once your licensed rep confirms receipt.",
+    answer: "Our specialized agents qualify the consumer against your specific vertical criteria. Once verified, we place the prospect on a brief hold, dial your direct line via 3-way conference, introduce the prospect, and hand off the call once your licensed representative confirms receipt.",
   },
   {
-    question: "How do you handle TCPA & DNC compliance?",
-    answer: "All leads are scrubbed against national and state Do-Not-Call registries. Every call recording and opt-in timestamp is archived and accessible for full audit transparency with Jornaya and TrustedForm lead certificates.",
+    question: "How do you ensure 100% TCPA and DNC compliance?",
+    answer: "All leads and dials are scrubbed against Federal, State, and Internal Do-Not-Call registries. Every lead generation campaign includes Jornaya and TrustedForm proof-of-opt-in tokens with timestamped audit trails.",
   },
   {
-    question: "What is your buffer time policy?",
-    answer: "We provide standard buffer times (typically 90 to 120 seconds depending on vertical). If a consumer disconnects prior to the buffer expiration or fails clear qualifying criteria, the transfer is credited automatically according to our master service agreement.",
+    question: "What is your buffer time and credit policy?",
+    answer: "We offer standard 90–120 second buffer windows depending on the vertical. If a consumer disconnects prior to buffer expiration or fails qualification criteria, the transfer is credited automatically according to our master agreement.",
   },
   {
-    question: "Can leads be pushed directly to our CRM or dialer?",
-    answer: "Yes. We integrate directly with major platforms including GoHighLevel, HubSpot, Salesforce, VICIdial, RingCentral, and custom webhooks for instant data delivery.",
+    question: "Can leads and call data be pushed directly to our CRM or dialer?",
+    answer: "Yes. We integrate directly with major platforms including GoHighLevel, HubSpot, Salesforce, VICIdial, RingCentral, and custom webhooks for instant data delivery as the call arrives.",
   },
   {
-    question: "How quickly can a pilot campaign be launched?",
-    answer: "Following initial script alignment and routing verification, most pilot campaigns can go live within 24 to 48 hours. Custom dedicated pod setups typically take 3 to 5 business days for dedicated training.",
+    question: "How quickly can a campaign or dedicated pod be launched?",
+    answer: "Following initial script alignment and telephony routing setup, most pilot campaigns go live within 24 to 48 hours. Custom dedicated agent pods typically take 3 to 5 business days for dedicated training.",
   },
 ];
 
@@ -46,7 +50,7 @@ export default function FAQSection() {
             Frequently Asked <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-slate-100 to-indigo-300">Questions.</span>
           </h2>
           <p className="text-base sm:text-lg text-slate-400 leading-relaxed font-normal">
-            Clear information regarding our lead qualification, transfers, buffer terms, and technical integrations.
+            Clear information regarding our lead generation services, compliance protocols, buffer terms, and technical integrations.
           </p>
         </div>
 

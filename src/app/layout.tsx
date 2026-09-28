@@ -23,24 +23,24 @@ export const viewport: Viewport = {
 };
 
 export const metadata: Metadata = {
-  title: 'GS Solutions — Precision Lead Generation & Enterprise BPO',
-  description: 'Compliant live transfers and dedicated contact center operations engineered for high-performance sales floors in Insurance, Legal, and Home Services.',
+  title: 'GS Solutions — Comprehensive Lead Generation & Contact Center Solutions',
+  description: 'We offer a wide range of professional Lead Generation, Telemarketing, 24/7 Customer Support, and Contact Center services tailored to your business needs.',
   keywords: [
     'GS Solutions',
     'Lead Generation',
-    'BPO Services',
+    'Telemarketing',
+    'Customer Support',
     'ACA Leads',
-    'Medicare Transfers',
-    'Final Expense',
+    'Medicare Enrollment Support',
+    'Final Expense Insurance',
     'SSDI Advocacy',
     'Home Improvement Solar',
-    'Warm Live Transfers',
-    'Contact Center Pods'
+    'Contact Center Solutions'
   ],
   authors: [{ name: 'GS Solutions' }],
   openGraph: {
-    title: 'GS Solutions — Precision Lead Generation & Enterprise BPO',
-    description: 'Compliant live transfers and dedicated contact center operations engineered for high-performance sales floors.',
+    title: 'GS Solutions — Comprehensive Lead Generation Solutions',
+    description: 'Professional Lead Generation, Telemarketing, and 24/7 Customer Support tailored to your business needs.',
     type: 'website',
   },
 };

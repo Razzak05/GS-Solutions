@@ -1,4 +1,4 @@
-# GS Solutions — Enterprise Lead Generation & Dedicated Contact Centers
+# GS Solutions — Comprehensive Lead Generation & Dedicated Contact Centers
 
 [![Next.js](https://img.shields.io/badge/Next.js-16.3-black?style=flat-square&logo=next.js)](https://nextjs.org/)
 [![React](https://img.shields.io/badge/React-19.3-blue?style=flat-square&logo=react)](https://react.dev/)
@@ -6,28 +6,31 @@
 [![TypeScript](https://img.shields.io/badge/TypeScript-7.0-blue?style=flat-square&logo=typescript)](https://www.typescriptlang.org/)
 [![License](https://img.shields.io/badge/License-Private-red?style=flat-square)](#)
 
-Precision warm live transfers, verified customer qualification, and dedicated contact center operations engineered for high-performance sales floors in Insurance, Legal Advocacy, and Home Services.
+We offer a wide range of professional Lead Generation, Customer Support, and Telemarketing services tailored to your business needs.
 
 ---
 
-## 🚀 Key Campaign Verticals
+## 🚀 Comprehensive Lead Generation Solutions
 
-- **ACA (Affordable Care Act)**: Warm live transfers of subsidy-eligible individuals and working families seeking zero-dollar or low-deductible health plans.
-- **Final Expense Life Insurance**: Connecting seniors (ages 50–80) with guaranteed whole life coverage and active checking/savings verification.
-- **Medicare Advantage & Supplement**: Compliant beneficiary transfers for AEP, OEP, and year-round Dual-Eligible (D-SNP) health plan enrollments.
-- **SSDI Disability Advocacy**: Pre-screened unrepresented disabled claimants unable to work with 12+ months disability duration.
-- **Home Improvement & Solar**: Single-family homeowner transfers pre-qualified for monthly utility spend and credit suitability.
-- **Omnichannel BPO & Support**: Dedicated inbound care, helpdesk ticketing, and outbound campaign pods customized for your brand.
+- **ACA**: Affordable Care Act enrollment and support services with expert guidance and compliance.
+- **Final Expense**: Comprehensive final expense insurance lead generation and conversion services.
+- **Medicare**: Medicare enrollment assistance and beneficiary support with expert knowledge.
+- **SSDI**: Social Security Disability Insurance support and advocacy services.
+- **Home Improvement**: Lead generation and customer acquisition for home improvement businesses.
+- **Customer Support**: 24/7 customer support services with multilingual capabilities.
+- **Lead Generation**: High-quality lead generation services to fuel your sales pipeline.
+- **Telemarketing**: Professional telemarketing services with trained agents and scripts.
 
 ---
 
-## ⚡ Enterprise Governance & Features
+## ⚡ Benefits of Working With Us
 
-- **100% TCPA & DNC Scrubbing**: Every record is scrubbed against Federal, State, and Internal registries with Jornaya and TrustedForm token retention.
-- **Transparent Buffer Terms**: Guaranteed 90–120s buffer windows with automated credit terms under our master service agreement.
-- **Turnkey CRM & Telephony Webhooks**: Direct DID phone routing, warm 3-way handoffs, and instant webhooks to GoHighLevel, VICIdial, Salesforce, HubSpot, RingCentral, and custom REST APIs.
-- **Interactive Floor Capacity Estimator**: Dynamic modeling tool for daily transfer volume, rep staffing pacing, and monthly volume projections.
-- **Executive Dark UI**: Precision glassmorphism, radial-masked ambient lighting canvas, and high-contrast typography.
+- **Experienced Team**: Our skilled professionals bring years of industry expertise across multiple verticals.
+- **Quality Assurance**: Rigorous quality checks and daily supervisor audits ensure top-notch service delivery.
+- **100% TCPA & DNC Compliance**: Complete adherence to regulatory frameworks with Jornaya and TrustedForm verified consent.
+- **Turnkey CRM Integration**: Real-time webhook and dialer routing directly to GoHighLevel, VICIdial, Salesforce, HubSpot, and REST APIs.
+- **Dedicated Agent Pods**: Trained agents dedicated specifically to your brand guidelines and custom rebuttal flows.
+- **Carrier-Grade Telephony**: High-fidelity SIP infrastructure with sub-second warm conference handoffs.
 
 ---
 
@@ -35,7 +38,7 @@ Precision warm live transfers, verified customer qualification, and dedicated co
 
 - **Framework**: [Next.js](https://nextjs.org/) (App Router & React Server Components)
 - **Language**: [TypeScript](https://www.typescriptlang.org/)
-- **Styling**: [Tailwind CSS v4](https://tailwindcss.com/) with custom design tokens
+- **Styling**: [Tailwind CSS v4](https://tailwindcss.com/) with executive obsidian/indigo design tokens
 - **Icons**: [Lucide React](https://lucide.dev/)
 - **Fonts**: [Google Fonts](https://fonts.google.com/) (`Outfit` & `Plus Jakarta Sans` via `next/font`)
 - **Bundler**: [Turbopack](https://turbo.build/pack)
@@ -54,14 +57,14 @@ GS Solutions/
 │   └── components/
 │       ├── AmbientBackground.tsx # Mesh grid & atmospheric lighting
 │       ├── BackToTop.tsx        # Scroll-to-top floating control
-│       ├── ContactSection.tsx   # Inquiry form & direct contact channels
-│       ├── EstimatorSection.tsx # Floor capacity & pacing calculator
-│       ├── FAQSection.tsx       # Accordion FAQ
+│       ├── ContactSection.tsx   # Service inquiry form & direct desk channels
+│       ├── EstimatorSection.tsx # Floor capacity & volume calculator
+│       ├── FAQSection.tsx       # Accordion FAQ for all 8 services
 │       ├── Footer.tsx           # Multi-column footer
 │       ├── Header.tsx           # Sticky navigation & mobile drawer
 │       ├── HeroSection.tsx      # Hero banner, TCPA badge & metrics bar
-│       ├── StandardsSection.tsx # Compliance & QA bento grid
-│       ├── VerticalsSection.tsx # Tabbed vertical cards filter
+│       ├── StandardsSection.tsx # Why Choose Us / Benefits bento grid
+│       ├── VerticalsSection.tsx # 8 Core Services grid with filter tabs
 │       └── WorkflowSection.tsx  # 4-stage execution roadmap
 ├── next.config.mjs              # Next.js configuration
 ├── postcss.config.mjs           # PostCSS configuration with @tailwindcss/postcss
@@ -78,7 +81,7 @@ GS Solutions/
 - Node.js 18+ installed
 - npm / yarn / pnpm
 
-### Installation
+### Installation & Run
 
 ```bash
 # Clone the repository
@@ -89,12 +92,8 @@ cd GS-Solutions
 
 # Install dependencies
 npm install
-```
 
-### Available Scripts
-
-```bash
-# Run local development server (http://localhost:3000)
+# Run local development server
 npm run dev
 
 # Build for production
@@ -102,9 +101,6 @@ npm run build
 
 # Start production server
 npm run start
-
-# Lint codebase
-npm run lint
 ```
 
 ---
