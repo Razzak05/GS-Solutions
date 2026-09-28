@@ -1,0 +1,16 @@
+{
+  "name": "gs-solutions-landing-page",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "description": "GS Solutions - Enterprise Lead Generation & BPO Landing Page",
+  "scripts": {
+    "dev": "vite",
+    "start": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "devDependencies": {
+    "vite": "^5.4.8"
+  }
+}
