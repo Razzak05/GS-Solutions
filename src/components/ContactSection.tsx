@@ -1,0 +1,293 @@
+"use client";
+
+import React, { useState } from "react";
+import { Phone, MessageSquare, MapPin, Send, CheckCircle2, ArrowRight } from "lucide-react";
+
+export default function ContactSection() {
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState<"idle" | "success">("idle");
+  const [userName, setUserName] = useState("");
+
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+
+    const formData = new FormData(e.currentTarget);
+    const name = formData.get("fullName") as string;
+    
+    // Simulate API submission
+    setTimeout(() => {
+      setIsSubmitting(false);
+      setSubmitStatus("success");
+      setUserName(name || "Partner");
+      (e.target as HTMLFormElement).reset();
+      
+      setTimeout(() => setSubmitStatus("idle"), 6000);
+    }, 600);
+  };
+
+  return (
+    <section id="contact" className="py-[110px] relative z-10">
+      <div className="max-w-[1240px] mx-auto px-4 sm:px-6">
+        <div className="grid grid-cols-1 lg:grid-cols-[0.9fr_1.1fr] gap-12 lg:gap-16 items-start">
+          
+          {/* Left Info Panel */}
+          <div className="flex flex-col justify-center">
+            <span className="inline-flex items-center justify-center px-4 py-1.5 mb-5 text-[0.76rem] font-bold uppercase tracking-[1.8px] text-indigo-400 bg-indigo-500/[0.08] border border-indigo-500/25 rounded-full w-fit">
+              Get In Touch
+            </span>
+            
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-heading font-extrabold text-white mb-5 tracking-tight">
+              Discuss Your Campaign <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-slate-100 to-indigo-300">Requirements.</span>
+            </h2>
+            
+            <p className="text-base sm:text-lg text-slate-400 mb-8 max-w-md leading-relaxed font-normal">
+              Connect with our management desk to review target states, qualification criteria, and design a customized pilot campaign.
+            </p>
+
+            {/* Operational Status Pill */}
+            <div className="inline-flex items-center gap-2.5 bg-emerald-500/[0.08] border border-emerald-500/25 px-4 py-2 rounded-full w-fit mb-8 backdrop-blur-md">
+              <span className="relative flex h-2 w-2">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-400"></span>
+              </span>
+              <span className="text-xs font-semibold text-emerald-300 tracking-wide">
+                Direct Desk Active • Mon–Sat Operations
+              </span>
+            </div>
+
+            {/* Channels Stack */}
+            <div className="space-y-4">
+              
+              {/* Channel 1: Phone */}
+              <a 
+                href="tel:+916289553194" 
+                className="flex items-start gap-4 p-5 rounded-2xl bg-[#0B0F19]/90 border border-white/[0.08] hover:border-indigo-500/40 hover:bg-[#11172A] hover:translate-x-1 transition-all group backdrop-blur-xl"
+              >
+                <div className="w-11 h-11 rounded-xl bg-indigo-500/10 border border-indigo-500/20 flex items-center justify-center text-indigo-400 group-hover:bg-indigo-500 group-hover:text-white transition-colors shrink-0">
+                  <Phone className="w-5 h-5" />
+                </div>
+                <div className="flex flex-col">
+                  <span className="text-[0.72rem] font-bold uppercase tracking-wider text-slate-400 mb-0.5">
+                    Direct Phone Desk
+                  </span>
+                  <span className="font-heading text-lg font-bold text-white group-hover:text-indigo-300 transition-colors">
+                    +91 6289553194
+                  </span>
+                  <span className="text-xs text-indigo-400 mt-1 font-medium">
+                    Click to Call Directly
+                  </span>
+                </div>
+              </a>
+
+              {/* Channel 2: WhatsApp */}
+              <a 
+                href="https://wa.me/916289553194" 
+                target="_blank" 
+                rel="noreferrer" 
+                className="flex items-start gap-4 p-5 rounded-2xl bg-[#0B0F19]/90 border border-white/[0.08] hover:border-[#25D366]/40 hover:bg-[#11172A] hover:translate-x-1 transition-all group backdrop-blur-xl"
+              >
+                <div className="w-11 h-11 rounded-xl bg-[#25D366]/10 border border-[#25D366]/20 flex items-center justify-center text-[#25D366] group-hover:bg-[#25D366] group-hover:text-white transition-colors shrink-0">
+                  <MessageSquare className="w-5 h-5" />
+                </div>
+                <div className="flex flex-col">
+                  <span className="text-[0.72rem] font-bold uppercase tracking-wider text-slate-400 mb-0.5">
+                    Instant WhatsApp
+                  </span>
+                  <span className="font-heading text-lg font-bold text-white group-hover:text-[#25D366] transition-colors">
+                    +91 6289553194
+                  </span>
+                  <span className="text-xs text-[#25D366] mt-1 font-medium">
+                    Direct Executive Chat
+                  </span>
+                </div>
+              </a>
+
+              {/* Channel 3: HQ Location */}
+              <div className="flex items-start gap-4 p-5 rounded-2xl bg-[#0B0F19]/60 border border-white/[0.05] backdrop-blur-xl">
+                <div className="w-11 h-11 rounded-xl bg-slate-800/60 border border-white/[0.08] flex items-center justify-center text-slate-400 shrink-0">
+                  <MapPin className="w-5 h-5" />
+                </div>
+                <div className="flex flex-col">
+                  <span className="text-[0.72rem] font-bold uppercase tracking-wider text-slate-400 mb-0.5">
+                    Operations Headquarters
+                  </span>
+                  <span className="text-sm text-slate-300 leading-relaxed font-medium">
+                    Sistemas IT, E 2/4 GP Block, Sector V, Salt Lake, Kolkata 700091
+                  </span>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+          {/* Right Form Panel */}
+          <div className="bg-gradient-to-b from-[#0F1628]/95 to-[#0A0E1C]/98 border border-white/[0.1] rounded-[28px] p-7 sm:p-10 shadow-[0_25px_60px_-15px_rgba(0,0,0,0.8)] backdrop-blur-2xl relative overflow-hidden">
+            <div className="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-indigo-400/40 to-transparent"></div>
+            
+            <div className="mb-7">
+              <h3 className="font-heading text-2xl font-bold text-white mb-2">
+                Campaign Inquiry Form
+              </h3>
+              <p className="text-slate-400 text-sm">
+                Submit your campaign parameters to receive our qualification criteria and custom pilot proposal.
+              </p>
+            </div>
+
+            {submitStatus === "success" && (
+              <div className="mb-6 bg-emerald-500/10 border border-emerald-500/30 rounded-2xl p-5 flex items-start gap-3.5 animate-in fade-in zoom-in duration-300">
+                <CheckCircle2 className="w-6 h-6 text-emerald-400 shrink-0 mt-0.5" />
+                <div>
+                  <h4 className="font-heading text-base font-bold text-emerald-300 mb-1">
+                    Inquiry Received Successfully
+                  </h4>
+                  <p className="text-emerald-400/90 text-sm leading-relaxed">
+                    Thank you, {userName}. Our campaign desk has received your specifications and will reach out within 15 minutes.
+                  </p>
+                </div>
+              </div>
+            )}
+
+            <form onSubmit={handleSubmit} className="space-y-5">
+              
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div className="space-y-1.5">
+                  <label className="block text-xs font-semibold text-slate-300">
+                    Full Name *
+                  </label>
+                  <input 
+                    required 
+                    name="fullName" 
+                    type="text" 
+                    className="w-full bg-[#10172A] border border-white/[0.08] rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-indigo-500 focus:ring-2 focus:ring-indigo-500/30 transition-all placeholder:text-slate-600" 
+                    placeholder="Your Name" 
+                  />
+                </div>
+                <div className="space-y-1.5">
+                  <label className="block text-xs font-semibold text-slate-300">
+                    Work Email *
+                  </label>
+                  <input 
+                    required 
+                    name="email" 
+                    type="email" 
+                    className="w-full bg-[#10172A] border border-white/[0.08] rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-indigo-500 focus:ring-2 focus:ring-indigo-500/30 transition-all placeholder:text-slate-600" 
+                    placeholder="name@agency.com" 
+                  />
+                </div>
+              </div>
+
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div className="space-y-1.5">
+                  <label className="block text-xs font-semibold text-slate-300">
+                    Phone Number *
+                  </label>
+                  <input 
+                    required 
+                    name="phone" 
+                    type="tel" 
+                    className="w-full bg-[#10172A] border border-white/[0.08] rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-indigo-500 focus:ring-2 focus:ring-indigo-500/30 transition-all placeholder:text-slate-600" 
+                    placeholder="+1 (555) 000-0000" 
+                  />
+                </div>
+                <div className="space-y-1.5">
+                  <label className="block text-xs font-semibold text-slate-300">
+                    Primary Vertical *
+                  </label>
+                  <div className="relative">
+                    <select 
+                      required 
+                      name="vertical" 
+                      defaultValue=""
+                      className="w-full bg-[#10172A] border border-white/[0.08] rounded-xl px-4 py-3 text-sm text-white appearance-none focus:outline-none focus:border-indigo-500 focus:ring-2 focus:ring-indigo-500/30 transition-all cursor-pointer"
+                      style={{
+                        backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%2394A3B8' stroke-width='2'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E")`,
+                        backgroundRepeat: 'no-repeat',
+                        backgroundPosition: 'right 16px center',
+                      }}
+                    >
+                      <option value="" disabled className="bg-[#0A0E1A] text-slate-500">Select Campaign Vertical</option>
+                      <option value="ACA" className="bg-[#0A0E1A]">ACA Health Insurance</option>
+                      <option value="Final Expense" className="bg-[#0A0E1A]">Final Expense Life Insurance</option>
+                      <option value="Medicare" className="bg-[#0A0E1A]">Medicare Advantage / Supplement</option>
+                      <option value="SSDI" className="bg-[#0A0E1A]">SSDI Disability Claims</option>
+                      <option value="Home Improvement" className="bg-[#0A0E1A]">Home Improvement &amp; Solar</option>
+                      <option value="Customer Support" className="bg-[#0A0E1A]">Omnichannel BPO Support</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div className="space-y-1.5">
+                  <label className="block text-xs font-semibold text-slate-300">
+                    Anticipated Daily Volume
+                  </label>
+                  <div className="relative">
+                    <select 
+                      name="volume" 
+                      defaultValue="50-100"
+                      className="w-full bg-[#10172A] border border-white/[0.08] rounded-xl px-4 py-3 text-sm text-white appearance-none focus:outline-none focus:border-indigo-500 focus:ring-2 focus:ring-indigo-500/30 transition-all cursor-pointer"
+                      style={{
+                        backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%2394A3B8' stroke-width='2'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E")`,
+                        backgroundRepeat: 'no-repeat',
+                        backgroundPosition: 'right 16px center',
+                      }}
+                    >
+                      <option value="20-50" className="bg-[#0A0E1A]">20 – 50 transfers / day</option>
+                      <option value="50-100" className="bg-[#0A0E1A]">50 – 100 transfers / day</option>
+                      <option value="100-250" className="bg-[#0A0E1A]">100 – 250 transfers / day</option>
+                      <option value="250+" className="bg-[#0A0E1A]">250+ transfers / day</option>
+                    </select>
+                  </div>
+                </div>
+                
+                <div className="space-y-1.5">
+                  <label className="block text-xs font-semibold text-slate-300">
+                    Dialer / CRM System
+                  </label>
+                  <input 
+                    name="crm" 
+                    type="text" 
+                    className="w-full bg-[#10172A] border border-white/[0.08] rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-indigo-500 focus:ring-2 focus:ring-indigo-500/30 transition-all placeholder:text-slate-600" 
+                    placeholder="e.g. GoHighLevel, VICIdial, HubSpot" 
+                  />
+                </div>
+              </div>
+
+              <div className="space-y-1.5">
+                <label className="block text-xs font-semibold text-slate-300">
+                  Target States &amp; Campaign Notes
+                </label>
+                <textarea 
+                  name="notes" 
+                  rows={3} 
+                  className="w-full bg-[#10172A] border border-white/[0.08] rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-indigo-500 focus:ring-2 focus:ring-indigo-500/30 transition-all placeholder:text-slate-600 resize-y" 
+                  placeholder="Target states, licensing details, or specific qualification requirements..."
+                />
+              </div>
+
+              <button 
+                type="submit" 
+                disabled={isSubmitting}
+                className="group relative overflow-hidden w-full bg-gradient-to-r from-indigo-500 via-indigo-600 to-sky-500 hover:from-indigo-600 hover:to-sky-600 text-white font-bold py-4 px-6 rounded-2xl transition-all shadow-[0_4px_25px_rgba(99,102,241,0.4)] hover:shadow-[0_8px_35px_rgba(99,102,241,0.6)] flex items-center justify-center gap-2.5 border border-white/20 disabled:opacity-70 disabled:cursor-not-allowed cursor-pointer"
+              >
+                <span className="absolute inset-x-0 top-0 h-[1px] bg-white/40"></span>
+                {isSubmitting ? (
+                  <div className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin"></div>
+                ) : (
+                  <>
+                    <span>Submit Campaign Inquiry</span>
+                    <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                  </>
+                )}
+              </button>
+
+            </form>
+          </div>
+
+        </div>
+      </div>
+    </section>
+  );
+}
