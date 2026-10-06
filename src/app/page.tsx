@@ -11,7 +11,7 @@ import BackToTop from '@/components/BackToTop';
 
 export default function Home() {
   return (
-    <main className="relative min-h-screen overflow-hidden">
+    <main className="relative min-h-screen overflow-x-clip">
       <AmbientBackground />
       <Header />
       <HeroSection />
