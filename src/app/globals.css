@@ -73,52 +73,11 @@
   }
 }
 
-/* Range slider thumb styling */
-input[type="range"] {
-  -webkit-appearance: none;
-  appearance: none;
-  height: 8px;
-  border-radius: 9999px;
-  outline: none;
-  cursor: pointer;
-}
-
-input[type="range"]::-webkit-slider-thumb {
-  -webkit-appearance: none;
-  width: 22px;
-  height: 22px;
-  border-radius: 50%;
-  background: #FFFFFF;
-  border: 3px solid #6366F1;
-  box-shadow: 0 0 16px rgba(99, 102, 241, 0.7);
-  cursor: pointer;
-  transition: transform 0.15s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.15s ease;
-}
-
-input[type="range"]::-webkit-slider-thumb:hover {
-  transform: scale(1.15);
-  box-shadow: 0 0 20px rgba(99, 102, 241, 0.9);
-}
-
-input[type="range"]::-moz-range-thumb {
-  width: 22px;
-  height: 22px;
-  border-radius: 50%;
-  background: #FFFFFF;
-  border: 3px solid #6366F1;
-  box-shadow: 0 0 16px rgba(99, 102, 241, 0.7);
-  cursor: pointer;
-}
-
-/* Animations */
+/* Animations & Micro-Interactions */
 @keyframes livePulse {
   0% { transform: scale(0.9); opacity: 0.9; }
   70% { transform: scale(2.2); opacity: 0; }
   100% { transform: scale(2.4); opacity: 0; }
-}
-
-.animate-pulse-subtle {
-  animation: pulseSubtle 3s ease-in-out infinite;
 }
 
 @keyframes pulseSubtle {
@@ -126,7 +85,112 @@ input[type="range"]::-moz-range-thumb {
   50% { opacity: 0.9; }
 }
 
+@keyframes floatSlow {
+  0%, 100% {
+    transform: translate(0, 0) scale(1);
+  }
+  50% {
+    transform: translate(12px, -18px) scale(1.04);
+  }
+}
+
+@keyframes floatSlowReverse {
+  0%, 100% {
+    transform: translate(0, 0) scale(1);
+  }
+  50% {
+    transform: translate(-14px, 16px) scale(1.03);
+  }
+}
+
+@keyframes pulseAura {
+  0%, 100% {
+    opacity: 0.35;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.52;
+    transform: scale(1.08);
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+@keyframes borderBeam {
+  0%, 100% {
+    opacity: 0.3;
+    transform: translateX(-30%);
+  }
+  50% {
+    opacity: 0.8;
+    transform: translateX(30%);
+  }
+}
+
+.animate-pulse-subtle {
+  animation: pulseSubtle 3s ease-in-out infinite;
+}
+
+.animate-float-slow {
+  animation: floatSlow 14s ease-in-out infinite;
+}
+
+.animate-float-reverse {
+  animation: floatSlowReverse 18s ease-in-out infinite;
+}
+
+.animate-pulse-aura {
+  animation: pulseAura 10s ease-in-out infinite;
+}
+
+/* Button & Card Shimmer Light Streak */
+.shimmer-effect {
+  position: relative;
+  overflow: hidden;
+}
+
+.shimmer-effect::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.08) 50%,
+    transparent 100%
+  );
+  transform: translateX(-100%);
+  transition: transform 0.75s ease;
+}
+
+.shimmer-effect:hover::after {
+  transform: translateX(100%);
+}
+
 /* Typography utilities */
 .font-heading {
   font-family: var(--font-outfit), 'Outfit', sans-serif;
 }
+
+/* Accessibility: Respect Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  ::before,
+  ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+

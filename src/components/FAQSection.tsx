@@ -2,11 +2,12 @@
 
 import React, { useState } from "react";
 import { ChevronDown } from "lucide-react";
+import Reveal from "@/components/Reveal";
 
 const FAQ_DATA = [
   {
     question: "What Lead Generation and Contact Center services do you provide?",
-    answer: "We offer comprehensive lead generation and contact center solutions across ACA (Affordable Care Act), Final Expense Life Insurance, Medicare Advantage & Supplement, SSDI (Disability), Home Improvement & Solar, 24/7 Multilingual Customer Support, General Lead Generation, and Outbound Telemarketing.",
+    answer: "We offer comprehensive lead generation and contact center solutions across ACA (Affordable Care Act), Auto Insurance, Final Expense Life Insurance, Medicare Advantage & Supplement, SSDI (Disability), Home Improvement & Solar, Pest Control Services, Inbound Customer Support, Outbound Telemarketing, and Dedicated Agent Pods.",
   },
   {
     question: "How does the warm live transfer process work?",
@@ -42,55 +43,58 @@ export default function FAQSection() {
       <div className="max-w-[820px] mx-auto px-4 sm:px-6">
         
         {/* Intro */}
-        <div className="text-center mb-16">
-          <span className="inline-flex items-center justify-center px-4 py-1.5 mb-5 text-[0.76rem] font-bold uppercase tracking-[1.8px] text-indigo-400 bg-indigo-500/[0.08] border border-indigo-500/25 rounded-full">
-            Common Questions
-          </span>
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-heading font-extrabold text-white mb-5 tracking-tight">
-            Frequently Asked <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-slate-100 to-indigo-300">Questions.</span>
-          </h2>
-          <p className="text-base sm:text-lg text-slate-400 leading-relaxed font-normal">
-            Clear information regarding our lead generation services, compliance protocols, buffer terms, and technical integrations.
-          </p>
-        </div>
+        <Reveal delay={100} duration={600} direction="up">
+          <div className="text-center mb-16">
+            <span className="inline-flex items-center justify-center px-4 py-1.5 mb-5 text-[0.76rem] font-bold uppercase tracking-[1.8px] text-indigo-400 bg-indigo-500/[0.08] border border-indigo-500/25 rounded-full">
+              Common Questions
+            </span>
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-heading font-extrabold text-white mb-5 tracking-tight">
+              Frequently Asked <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-slate-100 to-indigo-300">Questions.</span>
+            </h2>
+            <p className="text-base sm:text-lg text-slate-400 leading-relaxed font-normal">
+              Clear information regarding our lead generation services, compliance protocols, buffer terms, and technical integrations.
+            </p>
+          </div>
+        </Reveal>
 
         {/* Accordion Stack */}
         <div className="flex flex-col gap-3.5">
           {FAQ_DATA.map((faq, index) => {
             const isActive = activeIndex === index;
             return (
-              <div 
-                key={index} 
-                className={`bg-[#0B0F19]/90 border rounded-2xl overflow-hidden backdrop-blur-xl transition-all duration-300 ${
-                  isActive 
-                    ? 'border-indigo-500/40 bg-[#11172A] shadow-[0_10px_30px_-10px_rgba(99,102,241,0.15)]' 
-                    : 'border-white/[0.08] hover:border-white/20 hover:bg-[#0E1424]'
-                }`}
-              >
-                <button
-                  onClick={() => toggleFAQ(index)}
-                  className="w-full flex items-center justify-between p-6 sm:p-7 font-heading text-base sm:text-lg font-bold text-white text-left focus:outline-none cursor-pointer"
-                  aria-expanded={isActive}
-                >
-                  <span className="pr-4">{faq.question}</span>
-                  <div className={`w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 transition-all duration-300 ${
-                    isActive 
-                      ? 'rotate-180 bg-indigo-500/20 text-indigo-300' 
-                      : 'bg-white/[0.04] text-slate-400'
-                  }`}>
-                    <ChevronDown className="w-4 h-4" />
-                  </div>
-                </button>
-                
+              <Reveal key={index} delay={index * 70} duration={500} direction="up" distance={16}>
                 <div 
-                  className="transition-all duration-300 ease-in-out overflow-hidden"
-                  style={{ maxHeight: isActive ? '250px' : '0px', opacity: isActive ? 1 : 0 }}
+                  className={`bg-[#0B0F19]/90 border rounded-2xl overflow-hidden backdrop-blur-xl transition-all duration-300 ${
+                    isActive 
+                      ? 'border-indigo-500/40 bg-[#11172A] shadow-[0_10px_30px_-10px_rgba(99,102,241,0.15)]' 
+                      : 'border-white/[0.08] hover:border-white/20 hover:bg-[#0E1424]'
+                  }`}
                 >
-                  <div className="px-6 pb-6 sm:px-7 sm:pb-7 text-slate-400 text-sm sm:text-[0.95rem] leading-relaxed border-t border-white/[0.04] pt-4">
-                    {faq.answer}
+                  <button
+                    onClick={() => toggleFAQ(index)}
+                    className="w-full flex items-center justify-between p-6 sm:p-7 font-heading text-base sm:text-lg font-bold text-white text-left focus:outline-none cursor-pointer"
+                    aria-expanded={isActive}
+                  >
+                    <span className="pr-4 transition-colors duration-200">{faq.question}</span>
+                    <div className={`w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 transition-all duration-300 ${
+                      isActive 
+                        ? 'rotate-180 bg-indigo-500/20 text-indigo-300' 
+                        : 'bg-white/[0.04] text-slate-400'
+                    }`}>
+                      <ChevronDown className="w-4 h-4" />
+                    </div>
+                  </button>
+                  
+                  <div 
+                    className="transition-all duration-300 ease-in-out overflow-hidden"
+                    style={{ maxHeight: isActive ? '280px' : '0px', opacity: isActive ? 1 : 0 }}
+                  >
+                    <div className="px-6 pb-6 sm:px-7 sm:pb-7 text-slate-400 text-sm sm:text-[0.95rem] leading-relaxed border-t border-white/[0.04] pt-4">
+                      {faq.answer}
+                    </div>
                   </div>
                 </div>
-              </div>
+              </Reveal>
             );
           })}
         </div>
@@ -99,3 +103,4 @@ export default function FAQSection() {
     </section>
   );
 }
+
